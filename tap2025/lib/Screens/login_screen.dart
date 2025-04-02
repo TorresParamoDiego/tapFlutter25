@@ -80,6 +80,22 @@ class _LoginScreenState extends State<LoginScreen> {
                 onTap: (){
                   isLoading= true; 
                   setState(() {}); 
+                  Future.delayed(Duration(seconds: 4)).then(
+                    (value) {
+                      Navigator.pushNamed(
+                        context,
+                        '/dash'
+                      );
+                    },
+                  );
+                  
+                  //dynamic para cuando no sepamos que tipo de dato se regresa, o si es variable
+                  /*Navigator.push(//Para hacer una navegacion entre pantallas tradicional, rutas normales
+                    context, 
+                    MaterialPageRoute(
+                      builder:(context) => DashboardScreen(),
+                    )
+                  );*/
                 },
                   child: Lottie.asset('assets/boton.json',width: 220)
               ),
