@@ -36,6 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   lottie: ^3.3.1
   sidebarx: ^0.17.1
+  hawk_fab_menu: ^1.2.0
 dev_dependencies:
   flutter_test:
     sdk: flutter

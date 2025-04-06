@@ -80,7 +80,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 onTap: (){
                   isLoading= true; 
                   setState(() {}); 
-                  Future.delayed(Duration(seconds: 4)).then(
+                  Future.delayed(Duration(seconds: 5)).then(
                     (value) {
                       Navigator.pushNamed(
                         context,
