@@ -58,7 +58,14 @@ class DashboardScreen extends StatelessWidget {
               GlobalValues.themeMode.value=1;
             }, 
             icon: Icon(Icons.light_mode)
-          )
+          ),
+          HawkFabMenuItem(
+            label: 'Theme Warm', 
+            ontap: (){
+              GlobalValues.themeMode.value=2;
+            }, 
+            icon: Icon(Icons.fireplace)
+          ),
         ],
       )
     );
