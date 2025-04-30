@@ -32,6 +32,13 @@ class DashboardScreen extends StatelessWidget {
               Navigator.pushNamed(context,'/reto');
             },
             icon: Icons.home, label: "Challenge App"
+          ),
+          SidebarXItem(
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.pushNamed(context,'/api');
+            },
+            icon: Icons.movie, label: "Popular Movies"
           )
         ],
       ),

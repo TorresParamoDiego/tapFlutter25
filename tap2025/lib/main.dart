@@ -3,6 +3,8 @@ import 'package:tap2025/Screens/challenge_screen.dart';
 //import 'package:tap2025/Screens/contador_screen.dart';
 import 'package:tap2025/Screens/dashboard_screen.dart';
 import 'package:tap2025/Screens/login_screen.dart';
+import 'package:tap2025/Screens/popular_screen.dart';
+import 'package:tap2025/network/api_popular.dart';
 import 'package:tap2025/utils/global_values.dart';
 import 'package:tap2025/utils/theme_settings.dart';
 
@@ -22,7 +24,8 @@ class MyApp extends StatelessWidget {
           home: LoginScreen(),
           routes: {//rutas nombrados
             "/dash": (context) => DashboardScreen(),
-            "/reto": (context) => ChallengeScreen()
+            "/reto": (context) => ChallengeScreen(),
+            "/api": (context) => PopularScreen() 
             //etiqueta y su valor, /dash es un alias
           },
         );
