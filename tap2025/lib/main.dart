@@ -58,7 +58,11 @@ class MyApp extends StatelessWidget {
     las relaciones foraneas estan rotas, producto se puede insertar sin categoria, nosotros debemos cuida
     Tambien se pueden activar, para validar las peticiones, de forma manual
   *No hay create database, se crea atraves de una clase
+  * se usa un manejo de versiones, cuando se manda una actualizacion de estructura se crea una nueva version
+  cuando se detecta cambio, se ejecuta codigo
   
+  * creacion, upgrade y downgrade
+
   Algo curioso, al programar en moviles se esta limitado en memoria ram, almacenamiento, procesador, bateria, datos
   ROM (Read Only Memory), solo lectura
 

@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:tap2025/models/popular_model.dart';
 import 'package:tap2025/network/api_popular.dart';
 
 class PopularScreen extends StatefulWidget {
