@@ -75,7 +75,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ),
             Positioned(
-              top: 470,
+              top: 630,
               child: InkWell(//para poder recibir click
                 onTap: (){
                   isLoading= true; 
