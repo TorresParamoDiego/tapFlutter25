@@ -30,10 +30,13 @@ class PopularModel {
 
   factory PopularModel.fromMap(Map<String,dynamic> movie){//para otro constructor con factory
     return PopularModel(
+
+      backdropPath: movie['backdrop_path'] != null
+        ? 'https://image.tmdb.org/t/p/w500/${movie['backdrop_path']}'
+        : 'https://support.heberjahiz.com/hc/article_attachments/21013076295570',
       id: movie['id'], 
-      backdropPath: 'https://image.tmdb.org/t/p/w500/${movie['backdrop_path']}'
-      //backdropPath: null
-      ?? 'https://support.heberjahiz.com/hc/article_attachments/21013076295570', //  cualesens
+      //backdropPath: 'https://image.tmdb.org/t/p/w500/${movie['backdrop_path']}'
+      //?? 'https://support.heberjahiz.com/hc/article_attachments/21013076295570', //  cualesens
       originalLanguage: movie['original_language'], 
       originalTitle: movie['original_title'], 
       overview: movie['overview'], 

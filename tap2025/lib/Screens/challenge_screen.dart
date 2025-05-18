@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:tap2025/utils/figura_entity.dart';
 import 'package:tap2025/utils/my_button.dart';
@@ -16,7 +18,9 @@ class _ChallengeScreenState extends State<ChallengeScreen> {
       appBar: AppBar(
         title: Text('Challenge App'),
       ),
-      body: Column(
+      body: Stack( 
+        children: [
+      Column(
         children: [
           Container(
             height: 50,
@@ -40,8 +44,35 @@ class _ChallengeScreenState extends State<ChallengeScreen> {
             itemCount: figuraList.length,
             ),
           ),
-        )
+        ),
         ],
+      ),
+        Align(
+          alignment: Alignment.bottomCenter,
+          child: ClipRRect(
+            borderRadius: BorderRadius.only(topLeft: Radius.circular(24),
+              topRight: Radius.circular(24),
+            ),
+            child: Container(
+              color: Colors.white.withOpacity(0.2),
+              height: 64,
+              padding: EdgeInsets.symmetric(horizontal: 32, vertical: 12),
+              child: BackdropFilter(
+                filter: ImageFilter.blur(sigmaX: 18.0,sigmaY: 18.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Image.network('https://flutter4fun.com/wp-content/uploads/2021/09/Home.png'),
+                    Image.network('https://flutter4fun.com/wp-content/uploads/2021/09/Search.png'),
+                    Image.network('https://flutter4fun.com/wp-content/uploads/2021/09/Heart.png'),
+                    Image.network('https://flutter4fun.com/wp-content/uploads/2021/09/account.png'),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        )
+        ]
       ),
     );
   }
