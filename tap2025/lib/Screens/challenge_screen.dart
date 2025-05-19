@@ -39,7 +39,16 @@ class _ChallengeScreenState extends State<ChallengeScreen> {
           child: ListView.builder(
             padding: const EdgeInsets.all(20.0),
             itemBuilder: (BuildContext context, int index) {
-              return FiguraWidget(figuraList[index]);
+              return GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(
+                    context,
+                    '/figDetail',
+                    arguments: figuraList[index],
+                  );
+                },
+                child: FiguraWidget(figuraList[index])
+              );
             },
             itemCount: figuraList.length,
             ),
@@ -156,6 +165,7 @@ class FiguraWidget extends StatelessWidget{
                             child: MyButton(
                               text: 'Buy Now',
                               textColor: color,
+                              bgColor: Colors.white,
                             ),
                           ),
                         ],
@@ -164,7 +174,7 @@ class FiguraWidget extends StatelessWidget{
                   ),
                   SizedBox(
                     width: imageWidth,
-                    child: Image.asset(
+                    child: Image.network(
                       image,
                     ),
                   )

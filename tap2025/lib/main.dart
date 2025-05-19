@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:tap2025/Screens/challenge_screen.dart';
 import 'package:tap2025/Screens/dashboard_screen.dart';
 import 'package:tap2025/Screens/detail_popular_movie.dart';
+import 'package:tap2025/Screens/figura_details.dart';
 import 'package:tap2025/Screens/login_screen.dart';
 import 'package:tap2025/Screens/popular_screen.dart';
+import 'package:tap2025/utils/figura_entity.dart';
 import 'package:tap2025/utils/global_values.dart';
 import 'package:tap2025/utils/theme_settings.dart';
 
@@ -25,8 +27,18 @@ class MyApp extends StatelessWidget {
             "/dash": (context) => DashboardScreen(),
             "/reto": (context) => ChallengeScreen(),
             "/api": (context) => PopularScreen(),
-            "/detail": (context) => DetailPopularMovie()
+            "/detail": (context) => DetailPopularMovie(),
+            //"/figDetail": (context) => FiguraDetails(figura: null,),
             //etiqueta y su valor, /dash es un alias
+          },
+          onGenerateRoute: (settings) {
+            if(settings.name=='/figDetail'){
+              final figura=settings.arguments as FiguraEntity;
+              return MaterialPageRoute(
+                builder: (context) => FiguraDetails(figura: figura),
+              );
+            }
+            return null;
           },
         );
       },
