@@ -36,10 +36,17 @@ class DashboardScreen extends StatelessWidget {
           SidebarXItem(
             onTap: () {
               Navigator.pop(context);
-              Navigator.pushNamed(context,'/api');
+              Navigator.pushNamed(context,'/api',arguments: 'Popular');
             },
             icon: Icons.movie, label: "Popular Movies"
-          )
+          ),
+          SidebarXItem(
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.pushNamed(context,'/api',arguments: 'Favorite');
+            },
+            icon: Icons.movie, label: "Favorite Movies"
+          ),
         ],
       ),
       //endDrawer para derecho

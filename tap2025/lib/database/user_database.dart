@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
+import 'package:tap2025/models/user_model.dart';
 
 class UserDatabase{
   static const NAMEDB='USERDB';
@@ -32,27 +33,36 @@ class UserDatabase{
 
     );
   }
-  Future<int> INSERT(Map<String,dynamic> data)async{//en el mapa se debe llamar igual al de la tabla
+  Future<int> INSERT(Map<String,dynamic> data) async{//en el mapa se debe llamar igual al de la tabla
     final con=await database;//esto es un metodo, llama al get
     return con!.insert(
       'tblUsers', 
       data
     );//regresa el id del ultimo elemento insertado
   }
-  Future<int> UPDATE(Map<String,dynamic> data)async{
+  Future<int> UPDATE(Map<String,dynamic> data) async{
     final con=await database;
     return con!.update(//retorna el numero de elementos cambiados
       'tblUsers', 
       data,
-      where: 'idUser=?', //consulta parametrizada, una forma de seguridad
+      where: 'idUser=?', //consulta parametrizada, una forma de seguridad inicial
       whereArgs: [data['idUser']]
     );
   }
-  DELETE(){
-
+  Future<int> DELETE(int idUser)async{
+    final con = await database;
+    return con!.delete(
+      'tblUsers',
+      where: 'idUser=?',
+      whereArgs: [idUser]
+    );
   }
-  SELECT(){
-
+  Future<List<UserModel>> SELECT()async{
+    final con= await database;
+    final res =await con!.query(
+      'tblUsers',
+    );
+    return res.map((user)=>UserModel.fromMap(user)).toList();
   }
 }
 /*

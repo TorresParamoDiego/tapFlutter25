@@ -15,73 +15,70 @@ class _ChallengeScreenState extends State<ChallengeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Challenge App'),
-      ),
-      body: Stack( 
+      body: Stack(
         children: [
-      Column(
-        children: [
-          Container(
-            height: 50,
-            margin: EdgeInsets.only(left: 20,top: 32,right: 20,bottom: 8),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Image.asset('assets/menu.png'),
-                Text('Figuras.',style: TextStyle(fontSize: 32, fontWeight: FontWeight.w800),),
-                Image.asset('assets/bag.png')
-              ],
-            ),
-        ),
-          Expanded(
-          child: Center(
-          child: ListView.builder(
-            padding: const EdgeInsets.all(20.0),
-            itemBuilder: (BuildContext context, int index) {
-              return GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(
-                    context,
-                    '/figDetail',
-                    arguments: figuraList[index],
-                  );
-                },
-                child: FiguraWidget(figuraList[index])
-              );
-            },
-            itemCount: figuraList.length,
-            ),
-          ),
-        ),
-        ],
-      ),
-        Align(
-          alignment: Alignment.bottomCenter,
-          child: ClipRRect(
-            borderRadius: BorderRadius.only(topLeft: Radius.circular(24),
-              topRight: Radius.circular(24),
-            ),
-            child: Container(
-              color: Colors.white.withOpacity(0.2),
-              height: 64,
-              padding: EdgeInsets.symmetric(horizontal: 32, vertical: 12),
-              child: BackdropFilter(
-                filter: ImageFilter.blur(sigmaX: 18.0,sigmaY: 18.0),
+          Column(
+            children: [
+              Container(
+                height: 50,
+                margin: EdgeInsets.only(left: 20,top: 32,right: 20,bottom: 8),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Image.network('https://flutter4fun.com/wp-content/uploads/2021/09/Home.png'),
-                    Image.network('https://flutter4fun.com/wp-content/uploads/2021/09/Search.png'),
-                    Image.network('https://flutter4fun.com/wp-content/uploads/2021/09/Heart.png'),
-                    Image.network('https://flutter4fun.com/wp-content/uploads/2021/09/account.png'),
+                    Image.asset('assets/menu.png'),
+                    Text('Figuras.',style: TextStyle(fontSize: 32, fontWeight: FontWeight.w800),),
+                    Image.asset('assets/bag.png')
                   ],
+                ),
+              ),
+              Expanded(
+                child: Center(
+                  child: ListView.builder(
+                    padding: const EdgeInsets.fromLTRB(20, 20, 20, 84),
+                    itemBuilder: (BuildContext context, int index) {
+                      return GestureDetector(
+                        onTap: () {
+                          Navigator.pushNamed(
+                            context,
+                            '/figDetail',
+                            arguments: figuraList[index],
+                          );
+                        },
+                        child: FiguraWidget(figuraList[index])
+                      );
+                    },
+                    itemCount: figuraList.length,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: ClipRRect(
+              borderRadius: BorderRadius.only(topLeft: Radius.circular(24),
+                topRight: Radius.circular(24),
+              ),
+              child: Container(
+                color: Colors.white.withOpacity(0.2),
+                height: 64,
+                padding: EdgeInsets.symmetric(horizontal: 32, vertical: 12),
+                child: BackdropFilter(
+                  filter: ImageFilter.blur(sigmaX: 18.0,sigmaY: 18.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Image.network('https://flutter4fun.com/wp-content/uploads/2021/09/Home.png'),
+                      Image.network('https://flutter4fun.com/wp-content/uploads/2021/09/Search.png'),
+                      Image.network('https://flutter4fun.com/wp-content/uploads/2021/09/Heart.png'),
+                      Image.network('https://flutter4fun.com/wp-content/uploads/2021/09/account.png'),
+                    ],
+                  ),
                 ),
               ),
             ),
           ),
-        )
-        ]
+        ],
       ),
     );
   }

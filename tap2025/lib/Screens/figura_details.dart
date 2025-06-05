@@ -101,29 +101,29 @@ class _FiguraDetailsState extends State<FiguraDetails> {
                       ],
                     ),
                     SizedBox(height: 18,),
+                    Text(
+                      widget.figura.dscp,
+                      style: TextStyle(color: Color(0xFFB0B1B4),fontSize: 16),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
                         Text(
-                            widget.figura.dscp,
-                           style: TextStyle(color: Color(0xFFB0B1B4),fontSize: 16),
+                          'Reviews',
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w700,
+                          ),
                         ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              'Reviews',
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.w700,
-                              ),
-                            ),
-                            Text(
-                              'See all',
-                              style: TextStyle(
-                                color: Color(0xFFD81C33), 
-                                decoration: TextDecoration.underline,
-                              ),
-                            ),
-                          ],
+                        Text(
+                          'See all',
+                          style: TextStyle(
+                            color: Color(0xFFD81C33), 
+                            decoration: TextDecoration.underline,
+                          ),
                         ),
+                        ],
+                    ),
                     SizedBox(height: 16,),
                     ReviewsList(),
                   ],
@@ -198,7 +198,7 @@ class _FiguraDetailsState extends State<FiguraDetails> {
                     height: 48,
                     child: MyButton(
                       text: 'Buy Now',
-                      textColor: widget.figura.color,
+                      textColor: Colors.white,
                       bgColor: widget.figura.color,
                     ),
                   )

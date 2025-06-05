@@ -20,7 +20,7 @@ class CounterWidget extends StatelessWidget {
     return Container(
       height: 52,
       decoration: BoxDecoration(
-        color: Color(0xFFF3BE39),
+        color: color,
         borderRadius: BorderRadius.circular(18),
         border: Border.all(color: Colors.white)
       ),

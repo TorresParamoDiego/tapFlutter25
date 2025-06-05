@@ -25,12 +25,11 @@ class PopularModel {
     required this.title,
     required this.voteAverage,
     required this.voteCount,
-    // ** this.backdroppath, puede ser nulo
+    // ** this.backdroppath, puede ser nulo ** \\
   });
 
   factory PopularModel.fromMap(Map<String,dynamic> movie){//para otro constructor con factory
     return PopularModel(
-
       backdropPath: movie['backdrop_path'] != null
         ? 'https://image.tmdb.org/t/p/w500/${movie['backdrop_path']}'
         : 'https://support.heberjahiz.com/hc/article_attachments/21013076295570',
@@ -41,7 +40,9 @@ class PopularModel {
       originalTitle: movie['original_title'], 
       overview: movie['overview'], 
       popularity: movie['popularity'], 
-      posterPath: movie['poster_path'], 
+      posterPath: movie['poster_path'] != null
+        ? 'https://image.tmdb.org/t/p/w500/${movie['poster_path']}'
+        : 'https://support.heberjahiz.com/hc/article_attachments/21013076295570',
       releaseDate: movie['release_date'], 
       title: movie['title'], 
       voteAverage: movie['vote_average'], 
@@ -51,5 +52,6 @@ class PopularModel {
 
 }
 //requiered, obligatoriamente
-/* no hay sobrecarga de constructores como en java
+/* 
+  no hay sobrecarga de constructores como en java
 */
